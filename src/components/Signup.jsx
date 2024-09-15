@@ -21,7 +21,7 @@ const Signup = () => {
     }
 
     try {
-      await axios.post('http://localhost:8080/api/auth/signup', { name, email, password });
+      await axios.post(`${process.env.REACT_APP_BASE_URL}api/auth/signup`, { name, email, password });
       toast.success('User signed up successfully!');
       setLogin(true); // Switch to login view after successful signup
     } catch (error) {
@@ -32,7 +32,7 @@ const Signup = () => {
 
   const handleLogin = async () => {
     try {
-      await axios.post('http://localhost:8080/api/auth/login', { email, password });
+      await axios.post(`${process.env.REACT_APP_BASE_URL}api/auth/login`, { email, password });
       toast.success('User logged in successfully!');
       navigate('/address-payment'); // Redirect to AddressPaymentPage after login
     } catch (error) {
