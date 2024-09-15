@@ -25,7 +25,7 @@ const AdresPaymentPage = () => {
 
     try {
       // Correct backend URL
-      const response = await axios.post('http://localhost:8080/api/shipping', formData);
+      const response = await axios.post(`${process.env.REACT_APP_BASE_URL}api/shipping`, formData);
       console.log(response.data); // Log response for debugging
 
       // Redirect to payment form
